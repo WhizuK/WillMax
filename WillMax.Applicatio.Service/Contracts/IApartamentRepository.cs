@@ -7,8 +7,8 @@ using WillMax.Domain;
 
 namespace WillMax.Applicatio.Service.Contracts
 {
-    public interface IUserRepository : IRepository<User , Guid>
+    public interface IApartamentRepository : IRepository<Apartament, Guid>
     {
-        public Task<User> GetByusername(string username);
+        public Task<Apartament> GetApartamentByLocation(Guid apartmentId, CancellationToken ct);
     }
 }

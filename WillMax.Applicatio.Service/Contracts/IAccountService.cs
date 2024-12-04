@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WillMax.Domain;
+using WillMax.Applicatio.Service.DTos;
 
 namespace WillMax.Applicatio.Service.Contracts
 {
-    public interface IUserRepository : IRepository<User , Guid>
+    public interface IAccountService
     {
-        public Task<User> GetByusername(string username);
+        public Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto);
     }
 }

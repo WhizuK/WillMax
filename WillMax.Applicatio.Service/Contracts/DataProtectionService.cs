@@ -7,8 +7,9 @@ using WillMax.Domain;
 
 namespace WillMax.Applicatio.Service.Contracts
 {
-    public interface IUserRepository : IRepository<User , Guid>
+    public interface DataProtectionService
     {
-        public Task<User> GetByusername(string username);
+        DataProtectionKeys Protect(string password);
+        byte[] GetComputedHash(string password, byte[] salt);
     }
 }

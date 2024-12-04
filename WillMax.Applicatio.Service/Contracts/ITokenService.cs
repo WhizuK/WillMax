@@ -7,8 +7,8 @@ using WillMax.Domain;
 
 namespace WillMax.Applicatio.Service.Contracts
 {
-    public interface IUserRepository : IRepository<User , Guid>
+    public interface ITokenService
     {
-        public Task<User> GetByusername(string username);
+        string GenerateToken(User user);
     }
 }
