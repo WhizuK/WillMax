@@ -11,17 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{477B9EEF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{B9C76E4E-3214-481C-9A44-9BBEBE02E64E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillMax.Domain", "WillMax.Domain\WillMax.Domain.csproj", "{B8AF1F00-97F0-4B2D-9F54-2DEA0F58BB69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillMax.Domain", "WillMax.Domain\WillMax.Domain.csproj", "{B8AF1F00-97F0-4B2D-9F54-2DEA0F58BB69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillMax.Infra.Dta", "WillMax.Infra.Dta\WillMax.Infra.Dta.csproj", "{9C1F7254-04AE-47A2-8C79-9C88BA7E5A8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillMax.Infra.Dta", "WillMax.Infra.Dta\WillMax.Infra.Dta.csproj", "{9C1F7254-04AE-47A2-8C79-9C88BA7E5A8A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{203E07CE-DA9D-4BE3-B53D-AD7FD0785684} = {203E07CE-DA9D-4BE3-B53D-AD7FD0785684}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillMax.Applicatio.Service", "WillMax.Applicatio.Service\WillMax.Applicatio.Service.csproj", "{203E07CE-DA9D-4BE3-B53D-AD7FD0785684}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillMax.Applicatio.Service", "WillMax.Applicatio.Service\WillMax.Applicatio.Service.csproj", "{203E07CE-DA9D-4BE3-B53D-AD7FD0785684}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B8AF1F00-97F0-4B2D-9F54-2DEA0F58BB69} = {B8AF1F00-97F0-4B2D-9F54-2DEA0F58BB69}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillMax.WebApi", "WillMax.WebApi\WillMax.WebApi.csproj", "{A3DC23C2-16B3-45FC-B017-F1B8E00A8BCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{203E07CE-DA9D-4BE3-B53D-AD7FD0785684}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{203E07CE-DA9D-4BE3-B53D-AD7FD0785684}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{203E07CE-DA9D-4BE3-B53D-AD7FD0785684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3DC23C2-16B3-45FC-B017-F1B8E00A8BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3DC23C2-16B3-45FC-B017-F1B8E00A8BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3DC23C2-16B3-45FC-B017-F1B8E00A8BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3DC23C2-16B3-45FC-B017-F1B8E00A8BCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +55,7 @@ Global
 		{B8AF1F00-97F0-4B2D-9F54-2DEA0F58BB69} = {4CE9D1BF-278C-4DFD-A2E2-61DDF23CD925}
 		{9C1F7254-04AE-47A2-8C79-9C88BA7E5A8A} = {477B9EEF-30E0-4E11-8CAF-518E71B79597}
 		{203E07CE-DA9D-4BE3-B53D-AD7FD0785684} = {1C5B06F4-1E77-40CA-905E-F3E44CC79F6A}
+		{A3DC23C2-16B3-45FC-B017-F1B8E00A8BCD} = {B9C76E4E-3214-481C-9A44-9BBEBE02E64E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6671DAB-07C8-4886-86E4-E76A3884B86E}

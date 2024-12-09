@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WillMax.Applicatio.Service\WillMax.Applicatio.Service.csproj" />
+    <ProjectReference Include="..\WillMax.Domain\WillMax.Domain.csproj" />
   </ItemGroup>
 
 </Project>
