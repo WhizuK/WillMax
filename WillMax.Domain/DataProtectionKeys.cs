@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WillMax.Domain
 {
-    public class DataProtectionKeys
-    {
-        public record DataProtectionKey(byte[] PasswordHash, byte[] PasswordSalt);
-    }
+    public record DataProtectionKeys(byte[] PasswordHash, byte[] PasswordSalt);
 }

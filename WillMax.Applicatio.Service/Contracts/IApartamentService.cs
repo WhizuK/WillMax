@@ -11,10 +11,10 @@ namespace WillMax.Applicatio.Service.Contracts
     {
         Task<IEnumerable<ApartmentResponseDto>> GetAll();
         Task<ApartmentResponseDto> GetById(Guid id);
-        Task<ApartmentResponseDto> Create(ApartmentResponseDto apartment);
-        Task<ApartmentResponseDto> Update(ApartmentResponseDto apartment);
-        Task<ApartmentResponseDto> Delete(ApartmentDeleteRequestDto apartment);
-        Task<ApartmentResponseDto> Dto(Guid id);
+        Task<ApartmentResponseDto> Create(ApartmentRequestDto apartmentDto);
+        Task<ApartmentResponseDto> Update(ApartmentRequestDto apartmentDto);
+        Task<ApartmentResponseDto> Delete(ApartmentDeleteRequestDto apartmentDto);
+        Task<ApartmentResponseDto> Delete(Guid id);
 
 
     }

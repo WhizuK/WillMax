@@ -7,7 +7,7 @@ using WillMax.Domain;
 
 namespace WillMax.Applicatio.Service.Contracts
 {
-    public interface DataProtectionService
+    public interface IDataProtectionService
     {
         DataProtectionKeys Protect(string password);
         byte[] GetComputedHash(string password, byte[] salt);
