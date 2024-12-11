@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WillMax.Domain\WillMax.Domain.csproj" />
+    <ProjectReference Include="..\WillMax.Infra.Data.IoC\WillMax.Infra.Data.IoC.csproj" />
     <ProjectReference Include="..\WillMax.Infra.Dta\WillMax.Infra.Dta.csproj" />
   </ItemGroup>
 

@@ -11,7 +11,7 @@ namespace WillMax.Applicatio.Service.Service
         private readonly IUnitOfWork _unitOfWork;
         private readonly IDataProtectionService _dataProtectionService;
 
-        public UserService(IUserRepository repository, IUnitOfWork unitOfWork, DataProtectionService dataProtectionService)
+        public UserService(IUserRepository repository, IUnitOfWork unitOfWork, IDataProtectionService dataProtectionService)
         {
             _repository = repository;
             _unitOfWork = unitOfWork;
@@ -58,7 +58,7 @@ namespace WillMax.Applicatio.Service.Service
 
         public Task<IEnumerable<User>> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public Task<User> GetById(Guid id)

@@ -21,7 +21,7 @@ namespace WillMax.Applicatio.Service.Service
 
         public DataProtectionKeys Protect(string password)
         {
-            using var hmac = new HMACSHA3_512();
+            using var hmac = new HMACSHA512();
             byte[] hashedPass = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
             byte[] saltKey = hmac.Key;
 
