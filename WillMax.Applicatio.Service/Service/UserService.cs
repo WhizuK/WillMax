@@ -19,7 +19,7 @@ namespace WillMax.Applicatio.Service.Service
         }
 
 
-        public Task<User> Create(RegisterRequestDto registerRequestDto)
+        public async Task<User> Create(RegisterRequestDto registerRequestDto)
         {
             var dataProtection = _dataProtectionService.Protect(registerRequestDto.Password);
 
@@ -33,12 +33,31 @@ namespace WillMax.Applicatio.Service.Service
                     PasswordHash = dataProtection.PasswordHash,
                     SaltHash = dataProtection.PasswordSalt,
                 }
-
             };
 
             _repository.Create(user);
-            _unitOfWork.Commit();
-            return Task.FromResult(user);
+
+            await _unitOfWork.Commit(); // Aguarda o commit
+
+
+            return user;
+
+            //var user = new User
+            //{
+            //    Id = Guid.NewGuid(),
+            //    Name = registerRequestDto.Name,
+            //    Account = new Account
+            //    {
+            //        Username = registerRequestDto.Username,
+            //        PasswordHash = dataProtection.PasswordHash,
+            //        SaltHash = dataProtection.PasswordSalt,
+            //    }
+
+            //};
+
+            //_repository.Create(user);
+            //_unitOfWork.Commit();
+            //return await Task.FromResult(user);
         }
 
         public Task<User> Create(User user)

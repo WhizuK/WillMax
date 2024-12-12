@@ -8,7 +8,7 @@ namespace WillMax.Infra.Dta
     {
         public DbSet<Apartament> Apartamentes { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Account> Accounts { get; set; }
+
    
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
