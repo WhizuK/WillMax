@@ -12,7 +12,7 @@ namespace WillMax.Applicatio.Service.Contracts
         Task<TEntity> GetById(TPrimaryKey id);
         Task<TEntity> Create(TEntity entity);
         TEntity Update(TEntity entity);
-        Task<TEntity> DeleteById(TPrimaryKey id);
+        Task<TEntity> DeleteById (TPrimaryKey id);
         TEntity Delete(TEntity entity);
     }
 }

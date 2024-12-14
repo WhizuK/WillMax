@@ -30,22 +30,23 @@ namespace WillMax.WebApi.Controllers
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        [Authorize(Roles = "ROLE_ADMIN")]
-        public User Get(int id)
+        //[Authorize(Roles = "ROLE_ADMIN")]
+        public async Task<User> Get(Guid id)
         {
-            throw new NotImplementedException();
+            return await _userService.GetById(id);
         }
 
         [HttpPut("{id}")]
-        public async Task<User> Put(int id, [FromBody] User user)
+        public async Task<User> Update(User user)
         {
             return await _userService.Update(user);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:guid}")]
         public void Delete(Guid id)
         {
             _userService.Delete(id);
         }
+
     }
 }

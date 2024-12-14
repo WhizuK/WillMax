@@ -65,14 +65,19 @@ namespace WillMax.Applicatio.Service.Service
             throw new NotImplementedException();
         }
 
-        public Task<User> Delete(User user)
+        public async Task<User> Delete(User user)
         {
-            throw new NotImplementedException();
+            var entity = _repository.Delete(user);
+            await _unitOfWork.Commit();
+            return entity;
         }
 
-        public Task<User> Delete(Guid id)
+        public  Task<User> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var entity = _repository.DeleteById(id);
+             _unitOfWork.Commit();
+            return entity;
+
         }
 
         public Task<IEnumerable<User>> GetAll()
@@ -80,9 +85,9 @@ namespace WillMax.Applicatio.Service.Service
             return _repository.GetAll();
         }
 
-        public Task<User> GetById(Guid id)
+        public async Task<User> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return await _repository.GetById(id);
         }
 
         public async Task<User> GetByUsername(string username)
@@ -90,9 +95,13 @@ namespace WillMax.Applicatio.Service.Service
             return await _repository.GetByusername(username);
         }
 
-        public Task<User> Update(User user)
+        public async Task<User> Update(User user)
         {
-            throw new NotImplementedException();
+            User user1 = new User();
+
+            var entity = _repository.Update(user);
+            await _unitOfWork.Commit();
+            return entity;
         }
     }
 }

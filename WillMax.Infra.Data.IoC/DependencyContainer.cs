@@ -8,6 +8,8 @@ using WillMax.Infra.Dta;
 using WillMax.Infra.Dta.Repository;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using AutoMapper;
+using WillMax.Applicatio.Service.DTos;
 
 
 namespace WillMax.Infra.Data.IoC
@@ -39,6 +41,8 @@ namespace WillMax.Infra.Data.IoC
 
 
             services.AddJwtAuthentication(configuration);
+
+            services.AddAutoMapperDependency(configuration);
 
         }
 
@@ -74,6 +78,23 @@ namespace WillMax.Infra.Data.IoC
                 });
 
             return services;
+        }
+
+        public static IServiceCollection AddAutoMapperDependency(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddAutoMapper(typeof(MappingProfile));
+            return services;
+        }
+
+        public class MappingProfile : Profile
+        {
+            public MappingProfile()
+            {
+                CreateMap<Apartament, ApartmentRequestDto>();
+                CreateMap<ApartmentRequestDto, Apartament>();
+                CreateMap<Location, LocationResponseDto>();
+                CreateMap<LocationResponseDto, Location>();
+            }
         }
     }
 }

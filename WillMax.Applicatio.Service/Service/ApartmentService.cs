@@ -1,4 +1,5 @@
 ﻿
+using AutoMapper;
 using WillMax.Applicatio.Service.Contracts;
 using WillMax.Applicatio.Service.DTos;
 using WillMax.Domain;
@@ -9,27 +10,30 @@ namespace WillMax.Applicatio.Service.Service
     {
         private readonly IApartamentRepository _repository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public ApartmentService(IUnitOfWork unitOfWork, IApartamentRepository repository)
+        public ApartmentService(IUnitOfWork unitOfWork, IApartamentRepository repository, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _repository = repository;
+            _mapper = mapper;
+
         }
 
         public async Task<ApartmentResponseDto> Create(ApartmentRequestDto apartmentDto)
         {
-            Apartament apartament = apartmentDto.ToEntity();
-            apartament.Id = new Guid();
+            Apartament apartment = _mapper.Map<Apartament>(apartmentDto);
+            apartment.Id = new Guid();
 
-            if(apartament.Price == 0)
+            if(apartment.Price == 0)
             {
                 throw new Exception("Defina um Preço diferente de 0 !!!!");
             }
 
-            var entity = await _repository.Create(apartament);
+            var entity =  _repository.Create(apartment);
             await _unitOfWork.Commit();
 
-            return new ApartmentResponseDto(apartament);
+            return new ApartmentResponseDto(apartment);
         }
 
         public async Task<ApartmentResponseDto> Delete(ApartmentDeleteRequestDto apartmentDto)
@@ -69,8 +73,8 @@ namespace WillMax.Applicatio.Service.Service
         public async Task<ApartmentResponseDto> Update(ApartmentRequestDto apartmentDto)
         {
             Apartament apartament = new Apartament();
-            var entity = _repository.Update(apartament);
-            await _unitOfWork.Commit();
+            var entity =  _repository.Update(apartament);
+             _unitOfWork.Commit();
             return new ApartmentResponseDto(entity);
         }
     }
