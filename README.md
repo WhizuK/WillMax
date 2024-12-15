@@ -14,7 +14,7 @@
 
 <h2 id="technologies">💻 Technologies</h2>
 
-- list of all technologies you used
+- list of all technologies i used
 - C#
 - .NET
 - Angular
