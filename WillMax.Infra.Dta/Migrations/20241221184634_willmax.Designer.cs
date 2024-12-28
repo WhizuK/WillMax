@@ -12,8 +12,8 @@ using WillMax.Infra.Dta;
 namespace WillMax.Infra.Dta.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241211231413_test2")]
-    partial class test2
+    [Migration("20241221184634_willmax")]
+    partial class willmax
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

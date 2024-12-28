@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WillMax.Infra.Dta.Migrations
 {
     /// <inheritdoc />
-    public partial class test1 : Migration
+    public partial class Wilmax100 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Accounts",
+                name: "Account",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -22,7 +22,7 @@ namespace WillMax.Infra.Dta.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Accounts", x => x.Id);
+                    table.PrimaryKey("PK_Account", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,9 +51,9 @@ namespace WillMax.Infra.Dta.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_Accounts_AccountId",
+                        name: "FK_Users_Account_AccountId",
                         column: x => x.AccountId,
-                        principalTable: "Accounts",
+                        principalTable: "Account",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -102,7 +102,7 @@ namespace WillMax.Infra.Dta.Migrations
                 name: "Location");
 
             migrationBuilder.DropTable(
-                name: "Accounts");
+                name: "Account");
         }
     }
 }

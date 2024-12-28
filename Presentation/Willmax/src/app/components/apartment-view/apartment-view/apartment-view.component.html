@@ -1,0 +1,22 @@
+<p>apartment-create works!</p>
+<div class="container">
+    <div class="bg-white border rounded shadow-sm overflow-hidden p-3 col-lg-12">
+
+            <div class="mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" value="{{apt.price}}" class="form-control" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="text" value="{{apt.image}}" class="form-control" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" value="{{apt.description}}" class="form-control" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="locationName" class="form-label">Location Name</label>
+                <input type="text" value="{{apt.location.name}}" class="form-control" disabled>
+            </div>
+    </div>
+</div>

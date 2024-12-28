@@ -29,4 +29,8 @@
     <ProjectReference Include="..\WillMax.Domain\WillMax.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

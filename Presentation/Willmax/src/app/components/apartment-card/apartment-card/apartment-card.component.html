@@ -1,0 +1,13 @@
+<p>apartment-card works!</p>
+<div>
+    <div class="card" style="width: 18rem; padding: 5px; margin: 20px;">
+        <img class="card-img-top" src="../../../assets/img/no-img.svg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{apartment.location.id}}</h5>
+            <p class="card-text">{{apartment.description | lowercase}}</p>
+            <p class="card-text">{{apartment.price | currency: 'EUR'}}</p>
+
+            <a [routerLink]="['/apartment-view', apartment.id]" class="btn btn-primary">View Apartment</a>
+        </div>
+    </div>
+</div>

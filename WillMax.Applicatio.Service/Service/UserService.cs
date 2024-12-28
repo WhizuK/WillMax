@@ -37,7 +37,7 @@ namespace WillMax.Applicatio.Service.Service
 
             _repository.Create(user);
 
-            await _unitOfWork.Commit(); // Aguarda o commit
+            await _unitOfWork.Commit(); 
 
 
             return user;

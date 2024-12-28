@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 
 namespace WillMax.Infra.Dta
@@ -23,8 +24,7 @@ namespace WillMax.Infra.Dta
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
-            optionsBuilder.UseSqlServer(connectionString);
-
+            optionsBuilder.UseSqlServer(connectionString);      
             return new ApplicationDbContext(optionsBuilder.Options);
         }
     }

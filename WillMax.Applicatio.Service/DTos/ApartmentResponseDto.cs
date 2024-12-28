@@ -14,7 +14,7 @@ namespace WillMax.Applicatio.Service.DTos
             Price = apartment.Price;
             Image = apartment.Image;
             Description = apartment.Description;
-            Location = new LocationResponseDto(apartment.Location);
+            Location = apartment.Location != null ? new LocationResponseDto(apartment.Location) : null;
         }
 
 

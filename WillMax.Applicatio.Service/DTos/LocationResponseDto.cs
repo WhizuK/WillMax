@@ -14,7 +14,7 @@ namespace WillMax.Applicatio.Service.DTos
             }
             else
             {
-                Id = 0;
+                Id = location.Id;
                 Name = location.Name;
             }
         }

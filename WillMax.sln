@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillMax.Applicatio.Service"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillMax.WebApi", "WillMax.WebApi\WillMax.WebApi.csproj", "{A3DC23C2-16B3-45FC-B017-F1B8E00A8BCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WillMax.Infra.Data.IoC", "WillMax.Infra.Data.IoC\WillMax.Infra.Data.IoC.csproj", "{1F454593-1BFE-48D2-8A5F-FDC3D6F25302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WillMax.Infra.Data.IoC", "WillMax.Infra.Data.IoC\WillMax.Infra.Data.IoC.csproj", "{1F454593-1BFE-48D2-8A5F-FDC3D6F25302}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

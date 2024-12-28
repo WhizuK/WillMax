@@ -85,7 +85,7 @@ namespace WillMax.Infra.Dta.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Location");
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("WillMax.Domain.User", b =>

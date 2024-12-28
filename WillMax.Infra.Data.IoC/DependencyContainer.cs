@@ -26,6 +26,7 @@ namespace WillMax.Infra.Data.IoC
             services.AddScoped<IApartamentService, ApartmentService>();
 
 
+
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAccountService, AccountService>();
 
@@ -90,7 +91,7 @@ namespace WillMax.Infra.Data.IoC
         {
             public MappingProfile()
             {
-                CreateMap<Apartament, ApartmentRequestDto>();
+                CreateMap<Apartament, ApartmentResponseDto>();
                 CreateMap<ApartmentRequestDto, Apartament>();
                 CreateMap<Location, LocationResponseDto>();
                 CreateMap<LocationResponseDto, Location>();

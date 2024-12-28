@@ -12,8 +12,8 @@ using WillMax.Infra.Dta;
 namespace WillMax.Infra.Dta.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241209233536_test1")]
-    partial class test1
+    [Migration("20241228133528_willmax1.2")]
+    partial class willmax12
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,7 +45,7 @@ namespace WillMax.Infra.Dta.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Accounts");
+                    b.ToTable("Account");
                 });
 
             modelBuilder.Entity("WillMax.Domain.Apartament", b =>
@@ -88,7 +88,7 @@ namespace WillMax.Infra.Dta.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Location");
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("WillMax.Domain.User", b =>

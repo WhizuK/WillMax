@@ -23,7 +23,7 @@ namespace WillMax.Applicatio.Service.Service
         public async Task<ApartmentResponseDto> Create(ApartmentRequestDto apartmentDto)
         {
             Apartament apartment = _mapper.Map<Apartament>(apartmentDto);
-            apartment.Id = new Guid();
+            apartment.Id = Guid.NewGuid();
 
             if(apartment.Price == 0)
             {
@@ -55,13 +55,8 @@ namespace WillMax.Applicatio.Service.Service
 
         public async Task<IEnumerable<ApartmentResponseDto>> GetAll()
         {
-            List<ApartmentResponseDto> allApatments = new List<ApartmentResponseDto>();
-            List<Apartament> apartments = (List<Apartament>)await _repository.GetAll();
-            foreach (var apartment in apartments)
-            {
-                allApatments.Add(new ApartmentResponseDto(apartment));
-            }
-            return allApatments;
+            var apartments = await _repository.GetAll();
+            return apartments.Select(a => new ApartmentResponseDto(a));
         }
 
         public async Task<ApartmentResponseDto> GetById(Guid id)
@@ -72,10 +67,11 @@ namespace WillMax.Applicatio.Service.Service
 
         public async Task<ApartmentResponseDto> Update(ApartmentRequestDto apartmentDto)
         {
-            Apartament apartament = new Apartament();
-            var entity =  _repository.Update(apartament);
-             _unitOfWork.Commit();
-            return new ApartmentResponseDto(entity);
+            var apartament = _mapper.Map<Apartament>(apartmentDto);
+
+            var updatedEntity = _repository.Update(apartament);
+            await _unitOfWork.Commit();
+            return new ApartmentResponseDto(updatedEntity);
         }
     }
 }
