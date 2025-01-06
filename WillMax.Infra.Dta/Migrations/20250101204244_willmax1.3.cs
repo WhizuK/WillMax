@@ -5,7 +5,7 @@
 namespace WillMax.Infra.Dta.Migrations
 {
     /// <inheritdoc />
-    public partial class willmax12 : Migration
+    public partial class willmax13 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -8,7 +8,8 @@ namespace WillMax.Domain
 {
     public enum UserRole
     {
-        ROLE_ADMIN,
-        ROLE_USER
+        ROLE_ADMIN , 
+        ROLE_USER 
     }
+    
 }
