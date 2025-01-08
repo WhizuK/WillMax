@@ -12,12 +12,16 @@ namespace WillMax.Infra.Dta.Repository
         public  async Task<IEnumerable<Apartament>> GetAll()
         {
             // Inclui a propriedade de navegação "Location"
+                   await DbSet.Include(a => a.TypeListing).ToListAsync();
+                   await DbSet.Include(a => a.Stats).ToListAsync();
             return await DbSet.Include(a => a.Location).ToListAsync();
         }
 
         public  async Task<Apartament> GetById(Guid id)
         {
             // Inclui a propriedade de navegação "Location"
+                   await DbSet.Include(a => a.Stats).FirstOrDefaultAsync(a=> a.Id == id);
+                   await DbSet.Include(a =>a.TypeListing).FirstOrDefaultAsync(a => a.Id == id);
             return await DbSet.Include(a => a.Location).FirstOrDefaultAsync(a => a.Id == id);
         }
         public async Task<Apartament> GetApartamentByLocation(Guid apartmentId, CancellationToken ct)

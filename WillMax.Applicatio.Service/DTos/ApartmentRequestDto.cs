@@ -8,7 +8,9 @@ namespace WillMax.Applicatio.Service.DTos
         public double? Price { get; set; }
         public string? Image { get; set; }
         public string? Description { get; set; }
+        public TypeListing? TypeListing { get; set; }
         public LocationResponseDto? Location { get; set; }
+        public Stats? Stats { get; set; }
 
 
         public Apartament ToEntity()
@@ -48,6 +50,16 @@ namespace WillMax.Applicatio.Service.DTos
                 location.Id = apartament.Location.Id;
                 location.Name = apartament.Location.Name;
             }
+           
+            if (TypeListing == null)
+                {
+                apartament.TypeListing = TypeListing;
+            }
+            if (Stats == null)
+            {
+                apartament.Stats = Stats;
+            }
+
             return apartament;
         }
     }
