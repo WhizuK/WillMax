@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WillMax.Infra.Dta;
 
@@ -11,9 +12,11 @@ using WillMax.Infra.Dta;
 namespace WillMax.Infra.Dta.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250108194430_willmax1.5.1")]
+    partial class willmax151
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,17 +67,14 @@ namespace WillMax.Infra.Dta.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<string>("Stats")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TypeListingId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("LocationId");
+
+                    b.HasIndex("TypeListingId");
 
                     b.ToTable("Apartamentes");
                 });
@@ -94,6 +94,23 @@ namespace WillMax.Infra.Dta.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
+                });
+
+            modelBuilder.Entity("WillMax.Domain.TypeListing", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TypeListing");
                 });
 
             modelBuilder.Entity("WillMax.Domain.User", b =>
@@ -126,7 +143,15 @@ namespace WillMax.Infra.Dta.Migrations
                         .WithMany("Apartaments")
                         .HasForeignKey("LocationId");
 
+                    b.HasOne("WillMax.Domain.TypeListing", "TypeListing")
+                        .WithMany("Apartaments")
+                        .HasForeignKey("TypeListingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Location");
+
+                    b.Navigation("TypeListing");
                 });
 
             modelBuilder.Entity("WillMax.Domain.User", b =>
@@ -141,6 +166,11 @@ namespace WillMax.Infra.Dta.Migrations
                 });
 
             modelBuilder.Entity("WillMax.Domain.Location", b =>
+                {
+                    b.Navigation("Apartaments");
+                });
+
+            modelBuilder.Entity("WillMax.Domain.TypeListing", b =>
                 {
                     b.Navigation("Apartaments");
                 });

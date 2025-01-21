@@ -1,5 +1,7 @@
 ﻿
 using WillMax.Domain;
+using Microsoft.AspNetCore.Http;
+
 
 namespace WillMax.Applicatio.Service.DTos
 {
@@ -8,7 +10,11 @@ namespace WillMax.Applicatio.Service.DTos
         public double? Price { get; set; }
         public string? Image { get; set; }
         public string? Description { get; set; }
+        public string? Type { get; set; }
+        //public TypeListResponseDto? TypeList { get; set; }
         public LocationResponseDto? Location { get; set; }
+        public string? Stats { get; set; }
+
 
 
         public Apartament ToEntity()
@@ -22,13 +28,11 @@ namespace WillMax.Applicatio.Service.DTos
             {
                 apartament.Price = Price.Value;
             }
-            if (string.IsNullOrEmpty(Image))
+            if (Image != null)
             {
-                apartament.Image = "NoImage.jpg";
-            } else
-            {
-                apartament.Image = apartament.Image;
+                apartament.Image = !string.IsNullOrEmpty(Image) ? Image : "NoImage.jpg";
             }
+       
             if (!string.IsNullOrEmpty(Description))
             {
                 apartament.Description = "Description ????";
@@ -48,6 +52,16 @@ namespace WillMax.Applicatio.Service.DTos
                 location.Id = apartament.Location.Id;
                 location.Name = apartament.Location.Name;
             }
+
+            if (Stats == null)
+            {
+                apartament.Stats = Stats;
+            }
+            if (Type == null)
+            {
+                apartament.Type = Type;
+            }
+
             return apartament;
         }
     }

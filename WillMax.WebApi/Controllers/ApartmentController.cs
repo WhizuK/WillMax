@@ -37,8 +37,10 @@ namespace WillMax.WebApi.Controllers
 
         // POST api/<ApartmentController>
         [HttpPost]
-        public async Task<IActionResult> Create(ApartmentRequestDto apartament)
+
+        public async Task<IActionResult> Create([FromBody] ApartmentRequestDto apartament)
         {
+
             return Ok(await _apartamentService.Create(apartament));
         }
 

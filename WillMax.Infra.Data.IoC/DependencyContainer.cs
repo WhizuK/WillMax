@@ -95,6 +95,7 @@ namespace WillMax.Infra.Data.IoC
                 CreateMap<ApartmentRequestDto, Apartament>();
                 CreateMap<Location, LocationResponseDto>();
                 CreateMap<LocationResponseDto, Location>();
+
             }
         }
     }
